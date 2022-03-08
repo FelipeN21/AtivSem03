@@ -15,12 +15,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\AtivSem03\AtivSem03
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/AtivSem03/AtivSem03/Views/Aluno/AdicionarAluno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cQWRpY2lvbmFyQWx1bm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Aluno/DeleteAluno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cRGVsZXRlQWx1bm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/AtivSem03/AtivSem03/Views/Aluno/IndexAlunos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cSW5kZXhBbHVub3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/AtivSem03/AtivSem03/Views/Aluno/ReadAlunos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cUmVhZEFsdW5vcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Aluno/UpdateAluno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9cVXBkYXRlQWx1bm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Carro/AdicionarCarro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycm9cQWRpY2lvbmFyQ2Fycm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Carro/DeleteCarro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycm9cRGVsZXRlQ2Fycm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/AtivSem03/AtivSem03/Views/Carro/IndexCarros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycm9cSW5kZXhDYXJyb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Carro/ReadCarros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycm9cUmVhZENhcnJvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/AtivSem03/AtivSem03/Views/Carro/UpdateCarro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycm9cVXBkYXRlQ2Fycm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/AtivSem03/AtivSem03/Views/Home/Index.cshtml]

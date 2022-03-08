@@ -19,58 +19,79 @@ namespace AtivSem03.Controllers
         }
 
 
+        [HttpGet("/Carro/AdicionarCarro")]
+        public ActionResult AdicionarCarro()
+        {
+            return View();
+        }
 
-        
-        [HttpGet("/Carro/Adicionar")]
-        public ActionResult Adicionar(int id)
+        [HttpPost("/Carro/AdicionarCarro")]
+        public ActionResult AdicionarCarro(Carro carro)
         {
             try
             {
-                var carro = new Carro { documento = 70566, modelo = "MonzaTurbo" , placa = "KLL-2020"};
                 using (var contexto = new AlunoContext())
                 {
                     contexto.Carros.Add(carro);
                     contexto.SaveChanges();
-                    return Ok(carro);
+                    return View("IndexCarros");
                 }
-                
+
             }
             catch (Exception ex) { return Ok(ex.Message); }
         }
 
 
 
-        [HttpGet("Carro/Read")]
-        public ActionResult Read()
+
+
+        [HttpGet("Carro/ReadCarros")]
+        public ActionResult ReadCarros()
         {
             try
             {
                 using (var contexto = new AlunoContext())
                 {
                     var listCarros = contexto.Carros.ToList();
-
-                    return Ok(listCarros);
+                    ViewBag.Carros = listCarros;
+                    return View();
                 }
             }
             catch (Exception ex) { return Ok(ex.Message); }
         }
 
 
-       
-        [HttpGet("/Carro/Update{documentoP}")]
-        public ActionResult Update(int documentoP)
+
+
+
+        [HttpGet("/Carro/UpdateCarro")]
+        public ActionResult UpdateCarro()
+        {
+
+
+            return View();
+
+        }
+
+
+
+        [HttpPost("/Carro/UpdateCarro")]
+        public ActionResult UpdateCarro(Carro carro)
         {
             try
             {
-                
+
                 using (var contexto = new AlunoContext())
                 {
-                    var busca = contexto.Carros.Where(B => B.documento == documentoP).FirstOrDefault();
+                    var busca = contexto.Carros.Where(B => B.Id == carro.Id).FirstOrDefault();
+                   
 
-                    busca.modelo = "Carro Teste Inserido Update";
+                    busca.documento = carro.documento;
+                    busca.modelo = carro.modelo;
+                    busca.placa = carro.placa;
                     
                     contexto.SaveChanges();
-                    return Ok(busca);
+                    return View("IndexCarros");
                 }
             }
             catch (Exception ex) { return Ok(ex.Message); }
@@ -80,18 +101,30 @@ namespace AtivSem03.Controllers
 
 
 
-        [HttpGet("/Carro/Delete{id}")]
-        public ActionResult Delete(int id)
+        [HttpGet("/Carro/DeleteCarro")]
+        public ActionResult DeleteCarro()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex) { return Ok(ex.Message); }
+        }
+
+
+        [HttpPost("/Carro/DeleteCarro")]
+        public ActionResult DeleteCarro(Carro carro)
         {
             try
             {
                 using (var contexto = new AlunoContext())
                 {
-                    var carro = contexto.Carros.Where(B => B.Id == id).Single();
+                    var toDelete = contexto.Carros.Where(B => B.Id == carro.Id).Single();
 
-                    contexto.Carros.Remove(carro);
+                    contexto.Carros.Remove(toDelete);
                     contexto.SaveChanges();
-                    return Ok();
+                    Console.Write(carro.Id);
+                    return View("IndexCarros");
                 }
             }
             catch (Exception ex) { return Ok(ex.Message); }

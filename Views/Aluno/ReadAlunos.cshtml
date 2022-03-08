@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AtivSem03.Models.Aluno>
+
+@{
+    ViewData["Title"] = "ReadAlunos";
+}
+
+<h1>ReadAlunos</h1>
+
+<p>
+    <a asp-action="AdicionarAluno">Adicionar Aluno</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.carroID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in (List<Aluno>)ViewBag.Alunos) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.nome
+            </td>
+            <td>
+                @item.matricula
+            </td>
+            <td>
+               @item.telefone
+            </td>
+            <td>
+               @item.carroID
+            </td>
+           
+            <td>
+                @Html.ActionLink("Update", "UpdateAluno", new {/* id=item.PrimaryKey */}) |
+                
+                @Html.ActionLink("Delete", "DeleteAluno", new { item })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+    

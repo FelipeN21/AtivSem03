@@ -9,6 +9,7 @@ namespace AtivSem03.Controllers
 
     //Teste dos metodos Post,Delete, etc -> Realizados Via ThunderCliente do VsCode -> 
     //Caso necessario teste via Navegador, ou por algum cliente de request alterando para os tipos de request
+  
     public class AlunoController : Controller
     {
      
@@ -18,20 +19,22 @@ namespace AtivSem03.Controllers
             return View();
         }
 
-
-
-        
-       [HttpGet("/Aluno/Adicionar")]
-        public ActionResult Adicionar(int id)
+        [HttpGet("/Aluno/AdicionarAluno")]
+        public ActionResult AdicionarAluno()
+        {
+            return View();
+        }
+        [HttpPost("/Aluno/AdicionarAluno")]
+        public ActionResult AdicionarAluno(Aluno aluno)
         {
             try
             {
-                var aluno = new Aluno { nome = "Homem de ferro22", telefone = "31984049627", matricula = 12, carroID = 1 };
+                
                 using (var contexto = new AlunoContext())
                 {
                     contexto.Alunos.Add(aluno);
                     contexto.SaveChanges();
-                    return Ok(aluno);
+                    return View("IndexAlunos");
                 }
                
             }
@@ -40,35 +43,50 @@ namespace AtivSem03.Controllers
 
 
 
-        [HttpGet("Aluno/Read")]
-        public ActionResult Read()
+        [HttpGet("Aluno/Response/ReadAlunos")]
+        public ActionResult ReadAlunos()
         {
             try { 
             using (var contexto = new AlunoContext())
             {
                var listAluno = contexto.Alunos.ToList();
-               
-                return Ok(listAluno);
+               ViewBag.Alunos = listAluno;
+                return //Ok(listAluno);
+                    View();
             }
             }catch (Exception ex) { return Ok(ex.Message); }
         }
 
 
-       
-        [HttpGet("/Aluno/Update{matriculaP}")]
-        public ActionResult Update(int matriculaP)
+
+        [HttpGet("/Aluno/UpdateAluno")]
+        public ActionResult UpdateAluno()
+        {
+
+
+            return View();
+
+        }
+
+
+
+        [HttpPost("/Aluno/UpdateAluno")]
+        public ActionResult UpdateAluno(Aluno aluno)
         {
             try { 
             
             using (var contexto = new AlunoContext())
             {
-                var busca = contexto.Alunos.Where(B => B.matricula == matriculaP).FirstOrDefault();
-
-                busca.nome = "Felipe Nepomuceno Apenas";
-                
-                 contexto.SaveChanges();
-                return Ok(busca);
-            }
+                    var busca = contexto.Alunos.Where(B => B.Id == aluno.Id).FirstOrDefault();
+                    
+                    
+                    busca.nome = aluno.nome;
+                    busca.matricula = aluno.matricula;
+                    busca.telefone = aluno.nome;
+                    busca.carroID = aluno.carroID;
+                    contexto.SaveChanges();
+                    return View("IndexAlunos");
+                }
             }catch(Exception ex) { return Ok(ex.Message); }
 
            
@@ -76,18 +94,31 @@ namespace AtivSem03.Controllers
 
 
 
-        [HttpGet("/Aluno/Delete{id}")]
-        public ActionResult Delete(int id)
+        [HttpGet("/Aluno/DeleteAluno")]
+        public ActionResult DeleteAluno()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex) { return Ok(ex.Message); }
+        }
+
+
+
+        [HttpPost("/Aluno/DeleteAluno")]
+        public ActionResult DeleteAluno(Aluno aluno)
         {
             try { 
             using (var contexto = new AlunoContext())
             {
-                var aluno = contexto.Alunos.Where(B => B.Id == id).Single();
+             var toDelete = contexto.Alunos.Where(B => B.Id == aluno.Id).Single();
 
-                contexto.Alunos.Remove(aluno);
+                contexto.Alunos.Remove(toDelete);
                 contexto.SaveChanges();
-                return Ok();
-            }
+                    Console.Write(aluno.Id);
+                    return View("IndexAlunos");
+                }
             }catch (Exception ex) { return Ok(ex.Message); }
         }
   

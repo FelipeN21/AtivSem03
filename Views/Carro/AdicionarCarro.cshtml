@@ -1,0 +1,27 @@
+﻿@model Carro
+
+<h2>Registrar Carro</h2>
+
+<form asp-controller="Carro" asp-action="AdicionarCarro">
+
+
+    
+
+    <label>Documento</label>
+    <input asp-for="documento"></input>
+
+
+    <label>Modelo</label>
+    <input asp-for="modelo"></input>
+
+
+    <label>Placa</label>
+    <input asp-for="placa"></input>
+
+    <br>
+    <button type="submit" onclick="AdicionarCarro()">Adicionar</button>
+
+
+
+
+</form>

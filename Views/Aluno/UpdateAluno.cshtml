@@ -1,0 +1,30 @@
+﻿@model Aluno
+
+<h2>Update Aluno</h2>
+
+<form asp-controller="Aluno" asp-action="UpdateAluno">
+
+    <label>Id</label>
+    <input asp-for="Id"></input>
+
+    <label>Nome</label>
+    <input asp-for="nome"></input>
+
+    <label>Matricula</label>
+    <input asp-for="matricula"></input>
+
+
+    <label>Relefone</label>
+    <input asp-for="telefone"></input>
+
+    <br>
+    <label>Id do Carro</label>
+    <input asp-for="carroID"></input>
+
+    <br>
+    <button type="submit" onclick="AdicionarAluno()">UpdateAluno</button>
+
+
+
+
+</form>

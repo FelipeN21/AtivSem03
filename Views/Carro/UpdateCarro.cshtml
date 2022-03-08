@@ -1,0 +1,29 @@
+﻿@model Carro
+
+<h2>Update Carro</h2>
+
+<form asp-controller="Carro" asp-action="UpdateCarro">
+
+    <label>Id</label>
+    <input asp-for="Id"></input>
+
+    <label>documento</label>
+    <input asp-for="documento"></input>
+
+    <label>Modelo</label>
+    <input asp-for="modelo"></input>
+
+
+    <label>Placa</label>
+    <input asp-for="placa"></input>
+
+  
+  
+
+    <br>
+    <button type="submit" onclick="UpdateCarro()">UpdateCarro</button>
+
+
+
+
+</form>

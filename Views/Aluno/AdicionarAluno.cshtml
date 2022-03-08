@@ -1,0 +1,28 @@
+﻿@model Aluno
+
+<h2>Registrar Aluno</h2>
+
+<form asp-controller="Aluno" asp-action="AdicionarAluno">
+
+
+    <label>Nome</label>
+    <input asp-for="nome"></input>
+
+    <label>Matricula</label>
+    <input asp-for="matricula"></input>
+
+
+    <label>Telefone</label>
+    <input asp-for="telefone"></input>
+
+
+    <label>Id do Carro</label>
+    <input asp-for="carroID"></input>
+
+    <br>
+    <button type="submit" onclick="AdicionarAluno()">Adicionar</button>
+
+
+
+
+</form>

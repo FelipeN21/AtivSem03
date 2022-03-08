@@ -1,0 +1,18 @@
+﻿@model Aluno
+
+<h2>Deletar Aluno</h2>
+
+<form asp-controller="Aluno" asp-action="DeleteAluno">
+
+
+    <label>Id</label>
+    <input asp-for="Id"></input>
+
+
+    <br>
+    <button type="submit" onclick="DeleteAluno()">Deletar</button>
+
+
+
+
+</form>
